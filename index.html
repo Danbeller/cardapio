@@ -4,27 +4,40 @@
     <meta charset="UTF-8">
     <title>Cardápio - Lanchonete Sabor Top</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
-
-    <!-- Biblioteca QRCode -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
 <header>
-    <h1>Lanchonete Sabor Top</h1>
-    <p>O melhor lanche da cidade 🍔</p>
+    <div class="header-container">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+             alt="Logo Lanchonete" class="logo">
+        <div class="header-text">
+            <h1>Lanchonete Sabor Top</h1>
+            <p>O melhor lanche da cidade 🍔</p>
+        </div>
+    </div>
 </header>
-<h2>📲 Acesse nosso cardápio</h2>
-<section class="menu">
+
+<h2>📲 Escolha uma categoria</h2>
+
+<!-- BOTÕES DE CATEGORIA -->
+<section class="categorias">
+    <button onclick="mostrarCategoria('lanches')">🍔 Lanches</button>
+    <button onclick="mostrarCategoria('extras')">🍟 Extras</button>
+    <button onclick="mostrarCategoria('bebidas')">🥤 Bebidas</button>
+</section>
+
+<!-- Lanches -->
+<section class="menu categoria" id="lanches">
 
     <div class="card">
         <img src="img/xburger.png" alt="X-Burger">
         <h2>X-Burger</h2>
         <p>Pão, hambúrguer, queijo e molho especial</p>
         <span>R$ 18,00</span>
-        <button onclick="pedir('X-Burger')">Pedir no WhatsApp</button>
+        <button onclick="adicionarAoCarrinho('X-Burger', 18)">Adicionar ao Carrinho</button>
     </div>
 
     <div class="card">
@@ -32,29 +45,65 @@
         <h2>X-Salada</h2>
         <p>Pão, hambúrguer, queijo, alface e tomate</p>
         <span>R$ 20,00</span>
-        <button onclick="pedir('X-Salada')">Pedir no WhatsApp</button>
+        <button onclick="adicionarAoCarrinho('X-Salada', 20)">Adicionar ao Carrinho</button>
     </div>
+
+</section>
+
+<!-- Extras -->
+<section class="menu categoria" id="extras" style="display:none;">
 
     <div class="card">
         <img src="img/batata.png" alt="Batata Frita">
         <h2>Batata Frita</h2>
         <p>Porção crocante 400g</p>
         <span>R$ 15,00</span>
-        <button onclick="pedir('Batata Frita')">Pedir no WhatsApp</button>
+        <button onclick="adicionarAoCarrinho('Batata Frita', 15)">Adicionar ao Carrinho</button>
     </div>
+
+</section>
+
+<!-- Bebidas -->
+<section class="menu categoria" id="bebidas" style="display:none;">
 
     <div class="card">
         <img src="img/refrigerante.png" alt="Refrigerante">
         <h2>Refrigerante Lata</h2>
         <p>Coca-Cola, Guaraná ou Fanta</p>
         <span>R$ 6,00</span>
-        <button onclick="pedir('Refrigerante Lata')">Pedir no WhatsApp</button>
+        <button onclick="adicionarAoCarrinho('Refrigerante Lata', 6)">Adicionar ao Carrinho</button>
     </div>
 
 </section>
 
 <section class="qrcode-section">
     <div id="qrcode"></div>
+</section>
+
+<!-- BOTÃO FLUTUANTE -->
+<div class="cart-toggle" onclick="toggleCarrinho()">
+    🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- CARRINHO -->
+<div class="carrinho-lateral" id="carrinho">
+    <div class="carrinho-header">
+        <h2>Seu Carrinho</h2>
+        <button onclick="toggleCarrinho()">✖</button>
+    </div>
+
+    <div id="lista-carrinho"></div>
+    <h3 id="total-carrinho">Total: R$ 0,00</h3>
+
+    <button class="finalizar-btn" onclick="finalizarPedido()">
+        Finalizar Pedido no WhatsApp
+    </button>
+</div>
+
+<!-- HISTÓRICO -->
+<section class="historico">
+    <h2>📋 Pedidos Finalizados</h2>
+    <div id="lista-historico"></div>
 </section>
 
 <script src="script.js"></script>
