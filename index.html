@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio - Lanchonete Sabor Top</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Biblioteca QRCode -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Lanchonete Sabor Top</h1>
+    <p>O melhor lanche da cidade 🍔</p>
+</header>
+<h2>📲 Acesse nosso cardápio</h2>
+<section class="menu">
+
+    <div class="card">
+        <img src="img/xburger.png" alt="X-Burger">
+        <h2>X-Burger</h2>
+        <p>Pão, hambúrguer, queijo e molho especial</p>
+        <span>R$ 18,00</span>
+        <button onclick="pedir('X-Burger')">Pedir no WhatsApp</button>
+    </div>
+
+    <div class="card">
+        <img src="img/xsalada.png" alt="X-Salada">
+        <h2>X-Salada</h2>
+        <p>Pão, hambúrguer, queijo, alface e tomate</p>
+        <span>R$ 20,00</span>
+        <button onclick="pedir('X-Salada')">Pedir no WhatsApp</button>
+    </div>
+
+    <div class="card">
+        <img src="img/batata.png" alt="Batata Frita">
+        <h2>Batata Frita</h2>
+        <p>Porção crocante 400g</p>
+        <span>R$ 15,00</span>
+        <button onclick="pedir('Batata Frita')">Pedir no WhatsApp</button>
+    </div>
+
+    <div class="card">
+        <img src="img/refrigerante.png" alt="Refrigerante">
+        <h2>Refrigerante Lata</h2>
+        <p>Coca-Cola, Guaraná ou Fanta</p>
+        <span>R$ 6,00</span>
+        <button onclick="pedir('Refrigerante Lata')">Pedir no WhatsApp</button>
+    </div>
+
+</section>
+
+<section class="qrcode-section">
+    <div id="qrcode"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
