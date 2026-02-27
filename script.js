@@ -13,7 +13,7 @@ window.onload = function() {
 
     let numero = "5518996622714"; // 55 + DDD + número
     let mensagem = "Olá, vim pelo QR Code e gostaria de fazer um pedido!";
-    let linkWhatsApp = `https://api.whatsapp.com/send?phone=${numero}?text=${encodeURIComponent(mensagem)}`;
+    let linkWhatsApp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
     new QRCode(document.getElementById("qrcode"), {
         text: linkWhatsApp,
