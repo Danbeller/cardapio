@@ -129,9 +129,18 @@ function finalizarPedido() {
     let url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
     window.open(url, "_blank");
 
+    // =============================
+    // DATA E HORA DO PEDIDO
+    // =============================
+
+    let agora = new Date();
+    let dataFormatada = agora.toLocaleDateString("pt-BR");
+    let horaFormatada = agora.toLocaleTimeString("pt-BR");
+
     let blocoPedido = `
         <div class="pedido-finalizado">
             <strong>Pedido Finalizado</strong>
+            <p><small>📅 ${dataFormatada} às ${horaFormatada}</small></p>
             ${resumoPedidoHTML}
             <p><strong>Total: R$ ${total.toFixed(2)}</strong></p>
             <hr>
@@ -144,7 +153,6 @@ function finalizarPedido() {
     carrinho = [];
     atualizarCarrinho();
 }
-
 // =============================
 // MOSTRAR CATEGORIA
 // =============================

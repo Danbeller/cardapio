@@ -299,3 +299,10 @@ header p {
 .categorias button:hover {
     background: #a4161a;
 }
+
+.pedido-finalizado small {
+    color: #aaa;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 8px;
+}
